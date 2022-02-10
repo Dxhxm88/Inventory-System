@@ -14,7 +14,8 @@ class DepartmentFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => $this->faker->word(),
+            'location' => rand(1, 2),
         ];
     }
 }

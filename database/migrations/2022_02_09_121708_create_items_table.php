@@ -15,6 +15,11 @@ class CreateItemsTable extends Migration
     {
         Schema::create('items', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('serial_number');
+            $table->boolean('status');
+            $table->foreignId('category_id')->nullable()->constrained()->nullOnDelete();
+            $table->foreignId('supplier_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }

@@ -14,7 +14,11 @@ class ItemFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => $this->faker->word(),
+            'serial_number' => $this->faker->numerify('sn-######'),
+            'status' => rand(0, 1),
+            'category_id' => rand(1, 3),
+            'supplier_id' => rand(1, 2),
         ];
     }
 }

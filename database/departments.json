@@ -1,0 +1,132 @@
+{
+    "departments":[
+        {
+            "location": 1,
+            "name": "Jabatan kecemasan & trauma"
+        },
+        {
+            "location": 1,
+            "name": "PAC"
+        },
+        {
+            "location": 1,
+            "name": "Nefrologi"
+        },
+        {
+            "location": 1,
+            "name": "Rehabilitasi"
+        },
+        {
+            "location": 1,
+            "name": "Radiologi"
+        },
+        {
+            "location": 1,
+            "name": "Forensik"
+        },
+        {
+            "location": 1,
+            "name": "Farmasi Aras 1"
+        },
+        {
+            "location": 1,
+            "name": "Unit Kejuruteraan"
+        },
+        {
+            "location": 2,
+            "name": "Klinik Pakar 1"
+        },
+        {
+            "location": 2,
+            "name": "Klinik Pakar 2"
+        },
+        {
+            "location": 2,
+            "name": "Klinik Pakar 3"
+        },
+        {
+            "location": 2,
+            "name": "Klinik Pakar 4"
+        },
+        {
+            "location": 2,
+            "name": "Farmasi Pesakit Luar"
+        },
+        {
+            "location": 2,
+            "name": "Patologi & Transfusi"
+        },
+        {
+            "location": 3,
+            "name": "ICU"
+        },
+        {
+            "location": 3,
+            "name": "PICU"
+        },
+        {
+            "location": 3,
+            "name": "HDW"
+        },
+        {
+            "location": 3,
+            "name": "CCU"
+        },
+        {
+            "location": 3,
+            "name": "CRW"
+        },
+        {
+            "location": 3,
+            "name": "NICU"
+        },
+        {
+            "location": 4,
+            "name": "Pentadbiran"
+        },
+        {
+            "location": 4,
+            "name": "Pejabat Pakar"
+        },
+        {
+            "location": 5,
+            "name": "Wad 5A"
+        },
+        {
+            "location": 5,
+            "name": "Wad 5B"
+        },
+        {
+            "location": 5,
+            "name": "Wad 5C"
+        },
+        {
+            "location": 5,
+            "name": "Wad 5D"
+        },
+        {
+            "location": 5,
+            "name": "Farmasi Satelit 1"
+        },
+        {
+            "location": 6,
+            "name": "Wad 6A"
+        },
+        {
+            "location": 6,
+            "name": "Wad 6B"
+        },
+        {
+            "location": 6,
+            "name": "Wad 6C"
+        },
+        {
+            "location": 6,
+            "name": "Wad 6D"
+        },
+        {
+            "location": 6,
+            "name": "Farmasi Satelit 2"
+        }
+    ]
+}

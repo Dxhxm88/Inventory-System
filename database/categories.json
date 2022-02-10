@@ -1,0 +1,19 @@
+{
+    "categories":[
+        {
+            "name": "Monitor"
+        },
+        {
+            "name": "Printer"
+        },
+        {
+            "name": "Mouse"
+        },
+        {
+            "name": "Ink"
+        },
+        {
+            "name": "Laptop"
+        }
+    ]
+}
