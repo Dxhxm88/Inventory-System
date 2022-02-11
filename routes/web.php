@@ -29,53 +29,65 @@ Route::post('/', [LoginController::class, 'login'])->name('index.login');
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::post('/register', [RegisterController::class, 'register'])->name('register.store');
 
-Route::get('/signout', [SignoutController::class, 'signOut'])->name('logout');
+Route::middleware('auth')->group(function () {
 
-// Profile
-Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
-Route::get('/profile/edit', [ProfileController::class, 'showEdit'])->name('profile.showEdit');
-Route::post('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
+    Route::get('/signout', [SignoutController::class, 'signOut'])->name('logout');
 
-// Dashboard
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    // Profile
+    Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+    Route::get('/profile/edit', [ProfileController::class, 'showEdit'])->name('profile.showEdit');
+    Route::post('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
 
-// Item
-Route::get('/items', [ItemController::class, 'index'])->name('item');
-Route::get('/item/add', [ItemController::class, 'showAdd'])->name('item.showAdd');
-Route::post('/item/add', [ItemController::class, 'store'])->name('item.store');
-Route::get('/item/{id}/delete', [ItemController::class, 'destroy'])->name('item.destroy');
-Route::get('/item/{id}/edit', [ItemController::class, 'showEdit'])->name('item.showEdit');
-Route::post('/item/{id}/edit', [ItemController::class, 'update'])->name('item.update');
+    // Dashboard
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-// Supplier
-Route::get('/suppliers', [SupplierController::class, 'index'])->name('supplier');
-Route::get('/supplier/add', [SupplierController::class, 'showAdd'])->name('supplier.showAdd');
-Route::post('/supplier/add', [SupplierController::class, 'store'])->name('supplier.store');
-Route::get('/supplier/{id}/delete', [SupplierController::class, 'destroy'])->name('supplier.destroy');
-Route::get('/supplier/{id}/edit', [SupplierController::class, 'showEdit'])->name('supplier.showEdit');
-Route::post('/supplier/{id}/edit', [SupplierController::class, 'update'])->name('supplier.update');
+    // Item
+    Route::controller(ItemController::class)->prefix('item')->name('item')->group(function () {
+        Route::get('/', 'index');
+        Route::get('/add', 'showAdd')->name('.showAdd');
+        Route::post('/add', 'store')->name('.store');
+        Route::get('/{id}/delete', 'destroy')->name('.destroy');
+        Route::get('/{id}/edit', 'showEdit')->name('.showEdit');
+        Route::post('/{id}/edit', 'update')->name('.update');
+    });
 
-// Category
-Route::get('/category', [CategoryController::class, 'index'])->name('category');
-Route::get('/category/add', [CategoryController::class, 'showAdd'])->name('category.showAdd');
-Route::post('/category/add', [CategoryController::class, 'store'])->name('category.store');
-Route::get('/category/{id}/delete', [CategoryController::class, 'destroy'])->name('category.destroy');
-Route::get('/category/{id}/edit', [CategoryController::class, 'showEdit'])->name('category.showEdit');
-Route::post('/category/{id}/edit', [CategoryController::class, 'update'])->name('category.update');
+    // Supplier
+    Route::controller(SupplierController::class)->prefix('supplier')->name('supplier')->group(function () {
+        Route::get('/', 'index');
+        Route::get('/add', 'showAdd')->name('.showAdd');
+        Route::post('/add', 'store')->name('.store');
+        Route::get('/{id}/delete', 'destroy')->name('.destroy');
+        Route::get('/{id}/edit', 'showEdit')->name('.showEdit');
+        Route::post('/{id}/edit', 'update')->name('.update');
+    });
 
-// Department
-Route::get('/department', [DepartmentController::class, 'index'])->name('department');
-Route::get('/department/add', [DepartmentController::class, 'showAdd'])->name('department.showAdd');
-Route::post('/department/add', [DepartmentController::class, 'store'])->name('department.store');
-Route::get('/department/{id}/delete', [DepartmentController::class, 'destroy'])->name('department.destroy');
-Route::get('/department/{id}/edit', [DepartmentController::class, 'showEdit'])->name('department.showEdit');
-Route::post('/department/{id}/edit', [DepartmentController::class, 'update'])->name('department.update');
+    // Category
+    Route::controller(CategoryController::class)->prefix('category')->name('category')->group(function () {
+        Route::get('/', 'index');
+        Route::get('/add', 'showAdd')->name('.showAdd');
+        Route::post('/add', 'store')->name('.store');
+        Route::get('/{id}/delete', 'destroy')->name('.destroy');
+        Route::get('/{id}/edit', 'showEdit')->name('.showEdit');
+        Route::post('/{id}/edit', 'update')->name('.update');
+    });
 
+    // Department
+    Route::controller(DepartmentController::class)->prefix('department')->name('department')->group(function () {
+        Route::get('/', 'index');
+        Route::get('/add', 'showAdd')->name('.showAdd');
+        Route::post('/add', 'store')->name('.store');
+        Route::get('/{id}/delete', 'destroy')->name('.destroy');
+        Route::get('/{id}/edit', 'showEdit')->name('.showEdit');
+        Route::post('/{id}/edit', 'update')->name('.update');
+    });
 
-// Borrower
-Route::get('/borrower', [BorrowerController::class, 'index'])->name('borrower');
-Route::get('/borrower/add', [BorrowerController::class, 'showAdd'])->name('borrower.showAdd');
-Route::post('/borrower/add', [BorrowerController::class, 'store'])->name('borrower.store');
-Route::get('/borrower/{id}/delete', [BorrowerController::class, 'destroy'])->name('borrower.destroy');
-Route::get('/borrower/{id}/edit', [BorrowerController::class, 'showEdit'])->name('borrower.showEdit');
-Route::post('/borrower/{id}/edit', [BorrowerController::class, 'update'])->name('borrower.update');
+    // Borrower
+    Route::controller(BorrowerController::class)->prefix('borrower')->name('borrower')->group(function () {
+        Route::get('/', 'index');
+        Route::get('/add', 'showAdd')->name('.showAdd');
+        Route::post('/add', 'store')->name('.store');
+        Route::get('/{id}/delete', 'destroy')->name('.destroy');
+        Route::get('/{id}/edit', 'showEdit')->name('.showEdit');
+        Route::post('/{id}/edit', 'update')->name('.update');
+    });
+});
