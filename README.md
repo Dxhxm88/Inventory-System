@@ -3,6 +3,7 @@
 A simple inventory management system using Laravel 8 framework and Bootstrap CSS 5. 
 
 ## ERD
+![ERD](https://github.com/Dxhxm88/Inventory-System/blob/master/public/images/erd.PNG)
 
 ## How to install
 
